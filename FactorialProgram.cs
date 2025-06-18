@@ -20,7 +20,7 @@ namespace FactorialProgram{
 			{
 				factorial*=i;
 			}
-			Console.Write("The factorial of number {0} is : "+ factorial);
+			Console.Write("The factorial of number" +n " is : "+ factorial);
 			
 		}
 	}
