@@ -1,66 +1,81 @@
-﻿namespace CalculatorMethodOverloading
+﻿namespace StudentGrading
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Calculator c1 = new Calculator();
+            Student s1 = new Student("Avinash");
+            s1.Marks = 60;
+            s1.Assigngrade();
+            s1.DisplayInfo();
 
-            int intresult = c1.Add(5,10);
-            Console.WriteLine($"result of int: {intresult}");
+            Student s2 = new Student("Parth",89);
+            s2.Assigngrade();
+            s2.DisplayInfo();
 
-
-            double floatresult = c1.Add(5.5, 10.5);
-            Console.WriteLine($"result of double {floatresult}");
-
-
-            int [] inputArray = { 1,2,3,4,5,6,};
-            int outputSum = c1.Add(inputArray);
-            Console.WriteLine($"result of array: {outputSum}");
-
-            int[] nullArray = null;
-            int nullArrayresult = c1.Add(nullArray);
-            Console.WriteLine($"(result should be 0): {nullArrayresult}");
-
-            int[] emptyArray = new int[0];
-            int emptyArrayResult = c1.Add(emptyArray);
-            Console.WriteLine($"(result should be 0 ): {emptyArrayResult}");
+            Student s3 = new Student("Sanket",81,'N');
+            s3.Assigngrade();
+            s3.DisplayInfo();
 
         }
     }
 
-    public class Calculator
+    public class Student
     {
-        public int Add(int a, int b)
-        {
-            return a + b;
-        }
-        public  double Add(double a, double b)
-        {
-            return a + b;
-        }
-        public int Add(int[] numbers)
-        {
-            int sum = 0;
-            if ((numbers== null) || (numbers.Length==0))
-            {
-                Console.WriteLine("Array is null or empty");
-                return 0;
+        public string Name { get; set; }
+        public int Marks { get; set; }
+        public char Grade { get; set; }
 
+
+        public Student(string name)
+        {
+            this.Name = name;
+            this.Marks = 0;
+            this.Grade = 'N';
+
+
+        }
+
+        public Student(string name, int marks)
+        {
+
+            this.Name= name;
+            this.Marks = marks;
+            this.Grade = 'N';
+        }
+        public Student(string name, int marks, char grade) 
+        {
+            this.Name = name;   
+            this.Marks = marks;
+            this.Grade = grade;
+        
+        }
+
+        public void Assigngrade()
+        {
+            if (Marks >= 90)
+            {
+                Grade = 'A';
+            }else if((Marks>=80) && (Marks <= 89))
+            {
+                Grade = 'B';
+            }else if((Marks>=70) && (Marks <= 79))
+            {
+                Grade = 'C';
             }
             else
             {
-                for (int i = 0; i < numbers.Length; i++)
-                {
-                    sum = sum + numbers[i];
-                    return sum;
-
-                }
+                Grade = 'D';
             }
-
-            return 0;
-           
         }
+
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"Name = {this.Name}");
+            Console.WriteLine($"Marks = {this.Marks}");
+            Console.WriteLine($"Grade = {this.Grade}");
+        }
+
 
 
     }
