@@ -11,10 +11,10 @@ namespace PersonAppConstructorChaining
         public int Id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
-        public double Height { get; set; } // in meters
-        public double Weight { get; set; } // in kg
+        public double Height { get; set; } 
+        public double Weight { get; set; } 
 
-        // Constructor 1
+       
         public Person(int id, string name, int age, double height, double weight)
         {
             Id = id;
@@ -24,7 +24,7 @@ namespace PersonAppConstructorChaining
             Weight = weight;
         }
 
-        // Constructor 2 (Chained)
+
         public Person(int id, string name, int age)
             : this(id, name, age, 1.5, 50) // default height 1.5m, weight 50kg
         {
