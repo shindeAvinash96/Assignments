@@ -8,36 +8,53 @@ namespace NewMovieApp
         int maxMovie = 5;
         static void Main(string[] args)
         {
-            
 
-            Console.WriteLine("-------------------------Movie Application------------------------");
+            Console.WriteLine("Enter Your Name: ");
+            string name = Console.ReadLine();
+            Console.WriteLine($"Welcome to movie store developed by: {name}");
           
             Program p = new Program();
 
             while (true)
             {
-                Console.WriteLine("1.Add Movie\t2.Display\t3.Clear All\t4.Exit");
-                Console.Write("Enter your option from menu: ");
-                Console.WriteLine();
-                int choice = int.Parse(Console.ReadLine());
+                Console.WriteLine("\n\n1.Add New Movie\n2.Display All Movies\n3.Find Movies By Id\n4.Remove Movie By Id\n5.Clear All Movies\n6.Exit");
 
-                switch (choice)
+                try
                 {
-                    case 1:
-                        p.AddMovie();
-                        break;
-                    case 2:
-                        p.Display();
-                        break;
-                    case 3:
-                        p.ClearAll();
-                        break;
-                    case 4:
-                        return;
-                    default:
-                        Console.WriteLine("Invalid choice");
-                        break;
+                    Console.Write("Enter your option from menu: ");
+                    Console.WriteLine();
+                    int choice = int.Parse(Console.ReadLine());
 
+
+
+                    switch (choice)
+                    {
+                        case 1:
+                            p.AddMovie();
+                            break;
+                        case 2:
+                            p.DisplayAll();
+                            break;
+                        case 3:
+                            p.FindById();
+                            break;
+                        case 4:
+                            p.RemoveById();
+                            break;
+                        case 5:
+                            p.ClearAll();
+                            break;
+                        case 6:
+                            return;
+                        default:
+                            Console.WriteLine("Invalid choice");
+                            break;
+
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Enter integer only as choice ");
                 }
 
 
@@ -84,7 +101,22 @@ namespace NewMovieApp
 
         }
 
-        public void Display()
+        public void DisplayAll()
+        {
+            List<Movie> tempmovie = new List<Movie>();
+            tempmovie = SerialDeserial.Deserialization();
+            if(movielist.Count == 0)
+            {
+                Console.WriteLine("List is empty");
+            }
+            foreach (Movie m in tempmovie)
+            {
+                Console.WriteLine($"Id: {m.Id}\t Name: {m.Name} \t Genre: {m.Genre}\t Year: {m.Year}");
+                Console.WriteLine();
+            }
+        }
+
+        public void FindById()
         {
             List<Movie> tempmovie = new List<Movie>();
             tempmovie = SerialDeserial.Deserialization();
@@ -112,6 +144,29 @@ namespace NewMovieApp
                     Console.WriteLine("Id does not exist.");
                 }
              }
+        }
+
+        public void RemoveById()
+        {
+            List<Movie> tempmovie = new List<Movie>();
+            tempmovie = SerialDeserial.Deserialization();
+
+            Console.WriteLine("Enter Id: ");
+            string id = Console.ReadLine();
+
+            for (int i = 0; i < tempmovie.Count; i++) 
+            {
+                if(tempmovie[i].Id == id)
+                {
+                    tempmovie.RemoveAt(i);
+
+                    SerialDeserial.Serialization(tempmovie);
+                }
+                else
+                {
+                    Console.WriteLine("Id does not exist");
+                }
+            }
         }
 
         public void ClearAll()
