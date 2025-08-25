@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Big Slider Example</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <div class="game-instructions" style="margin-bottom: 50px;">
+      <p class="game-instructions-text">
+        <ul>
+          <b>
+          <h2 style="padding-bottom: 10px;">Instructions</h2>
+          </b>
+          <li>Guess the number by moving the slider</li>
+          <li>Color changes to <span style="color: red; font-weight: bold;">red</span> if guessed number is greater</li>
+          <li>Color changes to <span style="color: #FFD966; font-weight: bold;">yellow</span> if guessed number is smaller</li>
+          <li>Color changes to <span style="color: green; font-weight: bold;">green</span> if guessed number is greater</li>
+          <li>Maximum 6 attempts are allowed</li>
+        </ul>
+      </p>
+    </div>
+
+    <h2 id="game-heading">Blue-Ball Game</h2>
+    <input type="range" min="1" max="10" value="5" id="mySlider">
+
+    <div class="circle-group">
+      <div class="circle" id="c1">1</div>
+      <div class="circle" id="c2">2</div>
+      <div class="circle" id="c3">3</div>
+      <div class="circle" id="c4">4</div>
+      <div class="circle" id="c5">5</div>
+      <div class="circle" id="c6">6</div>
+      <div class="circle" id="c7">7</div>
+      <div class="circle" id="c8">8</div>
+      <div class="circle" id="c9">9</div>
+      <div class="circle" id="c10">10</div>
+    </div>
+
+    <p style="text-align: center;"><b>Attempted <span id="attempt-number" style="color: blue;"></span> time(s)</b></p>
+    <p style="text-align: center;"><b><span id="display" style="color: blue;"></span></b></p>
+    <div style="text-align: center;">
+      <a href="#" onclick="location.reload()" id="button-tryagain">
+        <b>Try Again</b>
+      </a>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
