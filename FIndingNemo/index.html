@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="game-container">
+        <h1 id="game-heading">Finding Nemo</h1>
+        <p style="text-align: center; font-weight: bold;">Select the tile under which you think nemo would be hiding!</p> <br>
+        <div class="images">
+            <img src="question_mark.png" class="question-mark-image" id="q1">
+            <img src="question_mark.png" class="question-mark-image" id="q2">
+            <img src="question_mark.png" class="question-mark-image" id="q3">
+            <img src="question_mark.png" class="question-mark-image" id="q4">
+            <img src="question_mark.png" class="question-mark-image" id="q5">
+            <img src="question_mark.png" class="question-mark-image" id="q6">
+            <img src="question_mark.png" class="question-mark-image" id="q7">
+            <img src="question_mark.png" class="question-mark-image" id="q8">
+            <img src="question_mark.png" class="question-mark-image" id="q9">
+            <img src="question_mark.png" class="question-mark-image" id="q10">
+        </div>
+        <br>
+        <p style="text-align: center;"><b>Attempted <span id="attempt-number" style="color: orange;"></span> time(s)</b></p>
+        <p style="text-align: center;"><b><span id="display" style="color: orange;">Remember you only have 5 tries!</span></b></p>
+        <br>
+        <div style="text-align: center;">
+            <a href="#" onclick="location.reload()" id="button-tryagain">
+                <b>Try Again</b>
+            </a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

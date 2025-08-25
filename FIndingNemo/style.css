@@ -1,0 +1,42 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+}
+
+#game-heading {
+    font-weight: bolder;
+    color: orange;
+    text-align: center;
+    font-size: 40px;
+}
+
+#button-tryagain {
+    display: inline;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.images {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 10px;
+}
+
+img {
+    box-shadow: 1px 1px 5px rgb(134, 134, 134);
+    border-radius: 20px;
+    border: 2px solid transparent;
+}
+
+img:hover {
+    border: 2px solid orange;
+}
+
+.question-mark-image {
+    height: 250px;
+}
